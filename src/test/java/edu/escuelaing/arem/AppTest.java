@@ -1,15 +1,16 @@
 package edu.escuelaing.arem;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.Test;
+
+import spark.Request;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
+public class AppTest{
+	public ApiWheaterCall api;
+	public String APIKEY = "7ac93a99c1116d4248f1475522520cef";
     /**
      * Create the test case
      *
@@ -17,22 +18,13 @@ public class AppTest
      */
     public AppTest( String testName )
     {
-        super( testName );
+    	api = new ApiWheaterCall();
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void deberiaCalcularElReultadoDeLaPrueba1(){
+    	String lugar = "Bogota";
+    	String url = "https://api.openweathermap.org/data/2.5/weather?q="+lugar+"&appid="+APIKEY;
+        Assert.assertTrue(true);
     }
 }

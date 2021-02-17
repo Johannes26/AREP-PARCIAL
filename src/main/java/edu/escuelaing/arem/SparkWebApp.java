@@ -6,7 +6,9 @@ public class SparkWebApp {
 
 	public static void main(String[] args) {
 		port(getPort());
-		get("/hello", (req, res) -> "Hello Heroku");
+		ApiWheaterCall a = new ApiWheaterCall();
+		get("/clima", (req, res) -> a.Resolver(req));
+		
 	}
 
 	static int getPort() {
